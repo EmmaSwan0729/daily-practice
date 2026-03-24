@@ -29,3 +29,5 @@ if __name__ == "__main__":
     })
     df.to_csv("utils/test.csv", index=False)
     inspect_csv("utils/test.csv")
+
+

@@ -22,3 +22,4 @@ print(avg_sales_region)
 
 print("\n=== Top sales record ===")
 print(top_sale)
+

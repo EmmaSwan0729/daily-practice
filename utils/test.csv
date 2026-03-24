@@ -1,0 +1,6 @@
+name,age,salary,city
+Alice,25.0,50000.0,London
+Bob,,60000.0,Paris
+,30.0,,London
+Alice,25.0,50000.0,London
+Eve,40.0,80000.0,
