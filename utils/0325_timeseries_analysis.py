@@ -15,11 +15,12 @@ df = pd.DataFrame(data)
 # 找出销售额最高的5天
 # 统计哪个星期几（Monday/Tuesday...）平均销售额最高
 
-# df["sales"] = df["sales"].fillna(method="ffill")
-# df["7day_rolling_avg"] = df["sales"].rolling(7).mean()
-# df["growth"] = df["sales"].diff()
-# top5  = df.nlargest(5,"sales")[["date","sales"]]
+df["sales"] = df["sales"].fillna(method="ffill")
+df["7day_rolling_avg"] = df["sales"].rolling(7).mean()
+df["growth"] = df["sales"].diff()
+top5  = df.nlargest(5,"sales")[["date","sales"]]
 df["weekday"] = df["date"].dt.day_name()
 weekday_avg = df.groupby("weekday")["sales"].mean().sort_values(ascending=False)
 
 print(weekday_avg)
+print(df)
