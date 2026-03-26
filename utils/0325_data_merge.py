@@ -48,7 +48,7 @@ total_sales_city = order_cust_prod.groupby("city")["revenue"].sum()
 
 total_sales_prod = order_cust_prod.groupby("product_id").agg(prod_count=("quantity","sum"), prod_sale = ("revenue","sum"))
 
-# print(order_cust_prod)
-# print(cust_no_order)
-# print(total_sales_city)
+print(order_cust_prod)
+print(cust_no_order)
+print(total_sales_city)
 print(total_sales_prod)
