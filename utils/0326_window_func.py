@@ -20,10 +20,12 @@ print(df)
 top_region = df.loc[df.groupby("date")["sales"].idxmax(),["date","region","sales"]]
 print(top_region)
 
+# df["rank"] = df["sales"].rank(ascending=False).astype(int)
+# df["pct"] = df.groupby("date","region")["sales"] / df["sales"].sum()
 
+# df["cumsum"] = df.groupby("date")["sales"].cumsum()
 
-
-
+# top_region = df.groupby("date")["sales"].idxmax()
 
 # df = df.assign(rank=df["sales"].rank(ascending=False).astype(int))
 # 在用 assign 的时候，如果新列名不是合法变量名（比如有空格）
