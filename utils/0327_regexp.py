@@ -17,9 +17,12 @@ df = pd.DataFrame(data)
 # 全部用 str.extract() 或 str.findall() 完成 
 
 df["email"] =  df["raw_text"].str.extract(r"([\w.]+@[\w.]+\.\w+)")
+
+
+df["order_num"] = df["raw_text"].str.extract(r"(?:ORD_|INV-\d{4}-|TX-|#)(\d+)") # 这样泛化能力非常弱，但没别的办法
 # df["order_num"] = df["raw_text"].str.extract(r"[#_-](\d+)") 这个输出不对
-df["order_num"] = df["raw_text"].str.extract(r"(?:ORD_|INV-\d{4}-|TX-|#)(\d+)")
-# df["order_num"] = df["raw_text"].str.findall(r"[#_-](\d+)").str[-1]
+# df["order_num"] = df["raw_text"].str.findall(r"[#_-](\d+)").str[-1] 也不对
+# df["order_num"] = df["raw_text"].str.extract(r"(\d+)(?!.*\d)")
 
 pattern = r"(\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4}|\d{4}\.\d{2}\.\d{2})"
 df["date"] = df["raw_text"].str.extract(pattern)

@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 
+# 接收一个 CSV 文件路径，输出以下信息：
+# 行数、列数
+# 每列的数据类型
+# 每列的缺失值数量和比例
+# 重复行数量
 
 def inspect_csv(filepath: str) -> None:
     df = pd.read_csv(filepath)
