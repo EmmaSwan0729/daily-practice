@@ -12,3 +12,7 @@ def climb_stairs(n:int) -> int:
     for _ in range(3, n+1):
         a,b = b, a+b
     return b
+
+
+# q, r = divmod(n, 2)
+# 这是返回一个元组，求 n 的商 q和余数 r
