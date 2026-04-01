@@ -31,5 +31,3 @@ def sales_report(orders:pd.DataFrame, customers:pd.DataFrame) -> pd.DataFrame:
     total_spent = df_join.groupby('name').agg(total_spent=('amount','sum')).sort_values('total_spent', ascending=False)
 
     return total_spent
-
-    print(total_spent)

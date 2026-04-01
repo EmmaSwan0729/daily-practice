@@ -34,3 +34,4 @@ df_sales = df.groupby("product").agg(
 
 print(df)
 print(df_sales)
+
