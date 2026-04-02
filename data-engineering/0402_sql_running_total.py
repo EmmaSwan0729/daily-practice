@@ -33,3 +33,7 @@ query = """
 
 df = pd.read_sql_query(query, conn)
 print(df)
+
+#  -- 这两个完全等价
+#     SUM(amount) OVER (ORDER BY order_date asc) AS running_total
+# SUM(amount) OVER (ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
