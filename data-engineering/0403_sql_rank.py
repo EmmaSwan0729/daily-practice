@@ -38,3 +38,8 @@ query = """
 
 df = pd.read_sql_query(query, conn)
 print(df)
+
+# 顺便说一下 RANK() 和 DENSE_RANK() 的区别，面试经常会问：
+# 函数相同薪资的排名下一个排名RANK()并列第2跳到第4DENSE_RANK()并列第2接着第3
+# 比如这道题如果用 RANK()，Bob 和 Charlie 都是第2，下一个就是第4，没有第3。
+
