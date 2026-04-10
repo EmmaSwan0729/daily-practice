@@ -19,14 +19,36 @@ INSERT INTO orders VALUES
 (6, 2, 200);
 """)
 
-query = """
+1
+query_1 = """
     SELECT user_id,order_id,amount,
     RANK() OVER(PARTITION BY user_id ORDER BY amount DESC)as rank_in_user
     FROM orders
 """
-
-rows = cursor.execute(query).fetchall()
-for row in rows:
+rows_1 = cursor.execute(query_1).fetchall()
+for row in rows_1:
     print(row)
+
+# 2
+query_2 = """
+    SELECT user_id,order_id,amount,
+    LAG(amount,1) OVER(PARTITION BY user_id ORDER BY user_id )as prev_amount
+    FROM orders
+"""
+rows_2 = cursor.execute(query_2).fetchall()
+for row in rows_2:
+    print(row)
+
+# 3
+query_3 = """
+    SELECT user_id,order_id,amount,
+    ROUND(CAST(amount AS FLOAT) / SUM(amount) OVER(PARTITION BY user_id) * 100, 2) AS pct_of_user_total
+    FROM orders
+"""
+rows_3 = cursor.execute(query_3).fetchall()
+for row in rows_3:
+    print(row)
+
+
 
 conn.close()
