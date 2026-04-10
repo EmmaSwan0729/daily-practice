@@ -3,12 +3,30 @@ from collections import Counter
 nums = [1, 3, 2, 3, 1, 3]
 
 def most_frequent(nums: list[int]) -> int:
+    """
+    Find the most frequent element in a list.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        The integer that appears most frequently.
+    """
     num_count = Counter(nums)
     return num_count.most_common(1)[0][0]
 
 print(most_frequent(nums))
 
 def most_frequent_num(nums:list[int]) -> int:
+    """
+    Find the most frequent element in a list.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        The integer that appears most frequently.
+    """
     counts = {}
     for num in nums:
         if num not in counts:
