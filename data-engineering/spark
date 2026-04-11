@@ -1,0 +1,16 @@
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("shuffle_demo").getOrCreate()
+spark.sparkContext.setLogLevel("ERROR")
+
+df = spark.createDataFrame([
+    (1, "Alice", 500),
+    (2, "Bob", 300),
+    (3, "Alice", 700),
+    (4, "Bob", 100),
+    (5, "Charlie", 400),
+], ["order_id", "user_name", "amount"])
+
+result = df.groupBy("user_name").sum("amount")
+
+result.explain()
