@@ -5,7 +5,7 @@ def longest_substring(s:str) -> int:
     Find longest substring without repeating character in a string.
 
     Args:
-        long_str: A string
+        s: A string
 
     Returns:
         Length of substring.
@@ -15,7 +15,7 @@ def longest_substring(s:str) -> int:
     max_length = 0
 
     for right in range(len(s)):
-        if s[right] in sub_str:
+        while s[right] in sub_str:
             sub_str.remove(s[left])
             left += 1
         
