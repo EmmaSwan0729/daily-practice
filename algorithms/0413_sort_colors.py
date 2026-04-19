@@ -1,6 +1,24 @@
 nums = [2,0,2,1,1,0]
 
 def sort_colors(nums:list[int]) -> list[int]:
+    """
+    Sort an array containing only 0s, 1s, and 2s in-place using the Dutch National Flag algorithm.
+
+    This algorithm uses three pointers:
+    - first (low): boundary for 0s
+    - second (mid): current element being processed
+    - third (high): boundary for 2s
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+
+    Args:
+        nums (list[int]): List of integers containing only 0, 1, and 2.
+
+    Returns:
+        list[int]: The sorted list (in-place modification).
+    """
+    
     first, second, third = 0, 0, len(nums)-1
     
     while second <= third:
